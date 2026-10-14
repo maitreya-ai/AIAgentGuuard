@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/dashboard/', '/api/', '/admin/'],
       },
     ],
-    sitemap: 'https://overseex.com/sitemap.xml',
+    sitemap: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://overseex.com'}/sitemap.xml`,
   }
 }

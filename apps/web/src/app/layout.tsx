@@ -74,15 +74,18 @@ const keywords = [
   'AI quota management', 'AI usage analytics', 'AI billing monitoring',
 ].join(', ')
 
+// The public origin of this deployment; canonical, Open Graph and JSON-LD URLs follow it.
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://overseex.com'
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://overseex.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'OverseeX - AI Agent Testing & Monitoring Platform',
     template: '%s | OverseeX',
   },
   description: 'The complete testing and monitoring platform for AI agents. Debug, trace, and optimize your LLM applications with real-time observability, multi-agent coordination intelligence, and automated regression detection.',
   keywords: keywords,
-  authors: [{ name: 'OverseeX Team', url: 'https://overseex.com' }],
+  authors: [{ name: 'OverseeX Team', url: SITE_URL }],
   creator: 'OverseeX',
   publisher: 'OverseeX',
   applicationName: 'OverseeX',
@@ -93,7 +96,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://overseex.com',
+    url: SITE_URL,
     siteName: 'OverseeX',
     title: 'OverseeX - AI Agent Testing & Monitoring Platform',
     description: 'The complete testing and monitoring platform for AI agents. Debug, trace, and optimize your LLM applications with real-time observability.',
@@ -137,9 +140,9 @@ export const metadata: Metadata = {
 
   // Alternate languages
   alternates: {
-    canonical: 'https://overseex.com',
+    canonical: '/',
     languages: {
-      'en-US': 'https://overseex.com',
+      'en-US': '/',
     },
   },
 
@@ -168,11 +171,11 @@ const jsonLd = {
   applicationCategory: 'DeveloperApplication',
   operatingSystem: 'Web',
   description: 'The complete testing and monitoring platform for AI agents. Debug, trace, and optimize your LLM applications.',
-  url: 'https://overseex.com',
+  url: SITE_URL,
   author: {
     '@type': 'Organization',
     name: 'OverseeX',
-    url: 'https://overseex.com',
+    url: SITE_URL,
   },
   offers: {
     '@type': 'Offer',

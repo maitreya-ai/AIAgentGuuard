@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-const BASE_URL = 'https://overseex.com'
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://overseex.com'
 
 // Blog post slugs - add new posts here
 const blogSlugs = [

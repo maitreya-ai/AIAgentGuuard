@@ -73,3 +73,8 @@ Software-Testing
 .env.production.deploy
 !*.example
 !**/*.example
+
+# Cloudflare / OpenNext
+.open-next/
+.wrangler/
+.dev.vars

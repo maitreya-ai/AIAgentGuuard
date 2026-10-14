@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "clean": "rm -rf .next node_modules"
+    "clean": "rm -rf .next node_modules",
+    "cf:build": "NEXT_PUBLIC_SITE_URL=https://overseex.aventrastack.com opennextjs-cloudflare build",
+    "cf:deploy": "pnpm cf:build && opennextjs-cloudflare deploy",
+    "cf:preview": "pnpm cf:build && opennextjs-cloudflare preview"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -31,6 +34,7 @@
     "reactflow": "^11.11.4"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "1.15.1",
     "@radix-ui/react-slot": "^1.2.4",
     "@radix-ui/react-tabs": "^1.1.13",
     "@radix-ui/react-tooltip": "^1.2.8",
@@ -48,6 +52,7 @@
     "tailwind-merge": "^2.6.0",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "wrangler": "4.144.0"
   }
 }

@@ -1,0 +1,25 @@
+{
+  // Cloudflare Worker for the OverseeX (AI Agent Guard) web app, built by
+  // OpenNext (`pnpm cf:build`). Deploy with `pnpm cf:deploy`.
+  //
+  // The FastAPI backend, Postgres, MongoDB and Redis do not run on Workers;
+  // they stay on the VPS (docker-compose.prod.yml). Set NEXT_PUBLIC_API_URL
+  // at build time to the public API origin; until a backend is live there,
+  // sign-in and the dashboard cannot reach one.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "overseex-web",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-09-26",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": { "enabled": true },
+  // One origin, one canonical URL. A Workers custom domain makes Cloudflare
+  // create the DNS record and the certificate, so the zone has to be on the
+  // deploying account. Keep it in step with NEXT_PUBLIC_SITE_URL.
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "overseex.aventrastack.com", "custom_domain": true }]
+}
